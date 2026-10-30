@@ -2,7 +2,6 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.1.8",
-	"EngineVersion": "5.5.0",
 	"FriendlyName": "Niagara UI Renderer",
 	"Description": "Add support for Niagara particle systems to be rendered directly as UI Widgets",
 	"Category": "FX",
@@ -15,9 +14,11 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+	"EnabledByDefault" : true,
 	"SupportedTargetPlatforms": [
 		"Win64",
-		"Android"
+		"Android",
+		"Linux"
 	],
 	"Modules": [
 		{
@@ -26,7 +27,8 @@
 			"LoadingPhase": "PreDefault",
 			"PlatformAllowList": [
 				"Win64",
-				"Android"
+				"Android",
+				"Linux"
 			]
 		},
 		{

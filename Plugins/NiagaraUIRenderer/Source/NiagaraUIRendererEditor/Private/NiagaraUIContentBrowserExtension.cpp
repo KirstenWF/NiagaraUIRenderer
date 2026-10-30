@@ -104,6 +104,16 @@ struct FCreateNiagaraUIMaterialsExtension : public FContentBrowserSelectedAssetE
 					for (UMaterialExpression* TestExp : NewMaterial->GetExpressions())
 #endif
 					{
+#if ENGINE_MINOR_VERSION > 4
+						for (FExpressionInputIterator It {TestExp }; It; ++It)
+						{
+							if (It->Expression == Expression)
+							{
+								It->Expression = VertexColor;
+							}
+						}
+#else // ENGINE_MINOR_VERSION > 4
+
 #if ENGINE_MINOR_VERSION > 2
 						TArrayView<FExpressionInput*> Inputs = TestExp->GetInputsView();
 #else
@@ -117,8 +127,8 @@ struct FCreateNiagaraUIMaterialsExtension : public FContentBrowserSelectedAssetE
 								Input->Expression = VertexColor;
 							}
 						}
+#endif // ENGINE_MINOR_VERSION > 4
 					}
-
 					UMaterialEditingLibrary::DeleteMaterialExpression(NewMaterial, Expression);
 				}
 			}
