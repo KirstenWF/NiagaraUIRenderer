@@ -1,49 +1,49 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.1.8",
-	"FriendlyName": "Niagara UI Renderer",
-	"Description": "Add support for Niagara particle systems to be rendered directly as UI Widgets",
-	"Category": "FX",
-	"CreatedBy": "Michal Smoleň",
-	"CreatedByURL": "https://github.com/SourySK/NiagaraUIRenderer",
-	"DocsURL": "https://sourysk.github.io/NiagaraUIRendererDocumentation/",
-	"FabURL": "com.epicgames.launcher://ue/Fab/product/1bd04141-c553-4b63-8ee9-277595475195",
-	"SupportURL": "",
-	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
-	"EnabledByDefault" : true,
-	"SupportedTargetPlatforms": [
-		"Win64",
-		"Android",
-		"Linux"
-	],
-	"Modules": [
-		{
-			"Name": "NiagaraUIRenderer",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NiagaraUIRendererEditor",
-			"Type": "Editor",
-			"LoadingPhase": "Default",
-			"PlatformAllowList": [
-				"Win64"
-			]
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "Niagara",
-			"Enabled": true
-		}
-	]
+"FileVersion": 3,
+"Version": 2,
+"VersionName": "1.1.10",
+"FriendlyName": "Niagara UI Renderer",
+"Description": "Add support for Niagara particle systems to be rendered directly as UI Widgets",
+"Category": "FX",
+"CreatedBy": "Michal Smoleň",
+"CreatedByURL": "https://github.com/SourySK/NiagaraUIRenderer",
+"DocsURL": "https://sourysk.github.io/NiagaraUIRendererDocumentation/",
+"FabURL": "com.epicgames.launcher://ue/Fab/product/1bd04141-c553-4b63-8ee9-277595475195",
+"SupportURL": "",
+"CanContainContent": true,
+"IsBetaVersion": false,
+"IsExperimentalVersion": false,
+"Installed": false,
+"EnabledByDefault" : true,
+"SupportedTargetPlatforms": [
+"Win64",
+"Android",
+"Linux"
+],
+"Modules": [
+{
+"Name": "NiagaraUIRenderer",
+"Type": "Runtime",
+"LoadingPhase": "PreDefault",
+"PlatformAllowList": [
+"Win64",
+"Android",
+"Linux"
+]
+},
+{
+"Name": "NiagaraUIRendererEditor",
+"Type": "Editor",
+"LoadingPhase": "Default",
+"PlatformAllowList": [
+"Win64"
+]
+}
+],
+"Plugins": [
+{
+"Name": "Niagara",
+"Enabled": true
+}
+]
 }

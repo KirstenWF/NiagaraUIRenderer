@@ -46,8 +46,7 @@ int32 SNiagaraUISystemWidget::OnPaint(const FPaintArgs& Args, const FGeometry& A
 
     float A, B, C, D;
     SlateRenderTransform.GetMatrix().GetMatrix(A, B, C, D);
-    const float AdditionalAngle = D < 0.f ? 180.f : 0.f;
-    const float Angle = FMath::RadiansToDegrees(FMath::Atan(C / D)) + AdditionalAngle;
+    const float Angle = FMath::RadiansToDegrees(FMath::Atan2(C, D));
 
     FNiagaraUIRenderProperties RenderProperties = FNiagaraUIRenderProperties(LayoutScale, ParentTopLeft, InWidgetStyle.GetColorAndOpacityTint() * ColorAndOpacityAttribute.Get().GetColor(InWidgetStyle));
 
@@ -92,7 +91,9 @@ void SNiagaraUISystemWidget::ClearRenderData()
 
 TSharedPtr<FSlateMaterialBrush> SNiagaraUISystemWidget::CreateSlateMaterialBrush(UMaterialInterface* Material)
 {
-    UMaterialInterface* MaterialToUse = WidgetProperties.MaterialRemapList->Contains(Material) && WidgetProperties.MaterialRemapList->Find(Material) != nullptr ? *WidgetProperties.MaterialRemapList->Find(Material) : Material;
+    const TObjectPtr<UMaterialInterface>* FoundMaterial = WidgetProperties.MaterialRemapList->Find(Material);
+    const bool FoundMaterialValid = FoundMaterial && *FoundMaterial != nullptr;
+    UMaterialInterface* MaterialToUse = FoundMaterialValid ? FoundMaterial->Get() : Material;
     
     if (MaterialBrushMap.Contains(MaterialToUse))
     {
